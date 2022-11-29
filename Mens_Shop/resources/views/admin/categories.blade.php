@@ -322,8 +322,8 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Main Category form</h4>
-                    @if(isset($cat_name))
-                      <h1>{{ $cat_name }}</h1>
+                    @if(isset($cate_name))
+                      <h1>{{ $cate_name }}</h1>
                     @endif
                     <form class="forms-sample" method="post" action="{{url('add_cat/')}}">
                       @csrf
@@ -332,7 +332,7 @@
                         <input
                           type="text"
                           class="form-control"
-                          name="cat_name"
+                          name="cate_name"
                           id="exampleInputUsername1"
                           placeholder="Enter Product Category Name"
                         />
@@ -360,12 +360,13 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>Edit Delete</td>
-                            
-                          </tr>
+                          @foreach($data as $d)
+                            <tr>
+                              <td>{{$d->id}}</td>
+                              <td>{{$d->cate_name}}</td>
+                              <td>Edit Delete</td>
+                            </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
