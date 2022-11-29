@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CateController;
+use App\Http\Controllers\AdminController;
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [HomeController::class, 'homepage']);
+Route::get('adminPage/', [AdminController::class, 'admin']);
+Route::get('catShow/', [CateController::class, 'categories']);
+Route::post('add_cat/', [CateController::class, 'insert']);
