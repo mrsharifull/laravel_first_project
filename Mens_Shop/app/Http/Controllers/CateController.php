@@ -26,4 +26,26 @@ class CateController extends Controller
         // return view('admin.categories', compact('cate_name'));
         return redirect('catShow');
     }
+
+    function editCategory($id)
+    {
+        $cate_model = CateModel::find($id);
+        return view('admin.edit_category', compact('cate_model'));
+    }
+
+    function updateCategory(Request $req, $id)
+    {
+        $cate_model = CateModel::find($id);
+        $cate_name = $req->cate_name;
+        $cate_model->cate_name = $cate_name;
+        $cate_model->save();
+        return redirect('catShow');
+    }
+
+    function deleteCategory($id)
+    {
+        $cate_model = CateModel::find($id);
+        $cate_model->delete();
+        return redirect()->back();
+    }
 }

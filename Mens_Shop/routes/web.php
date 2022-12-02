@@ -28,3 +28,7 @@ Route::get('/', [HomeController::class, 'homepage']);
 Route::get('adminPage/', [AdminController::class, 'admin']);
 Route::get('catShow/', [CateController::class, 'categories']);
 Route::post('add_cat/', [CateController::class, 'insert']);
+
+Route::get('edit_category/{id}', [CateController::class, 'editCategory']);
+Route::post('update_category/{id}', [CateController::class, 'updateCategory']);
+Route::get('delete_category/{id}', [CateController::class, 'deleteCategory']);

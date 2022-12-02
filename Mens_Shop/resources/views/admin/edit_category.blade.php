@@ -322,10 +322,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Main Category form</h4>
-                    {{-- @if(isset($cate_name))
-                      <h1>{{ $cate_name }}</h1>
-                    @endif --}}
-                    <form class="forms-sample" method="post" action="{{url('add_cat/')}}">
+                    <form class="forms-sample" method="post" action="{{ url('update_category',$cate_model->id) }}">
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputUsername1">Category Name</label>
@@ -333,6 +330,7 @@
                           type="text"
                           class="form-control"
                           name="cate_name"
+                          value="{{ $cate_model->cate_name }}"
                           id="exampleInputUsername1"
                           placeholder="Enter Product Category Name"
                         />
@@ -341,38 +339,6 @@
                         Submit
                       </button>
                     </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mx-auto grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Show Category</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>SL</th>
-                            <th>Category Name</th>
-                            <th>Action </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @foreach($data as $d)
-                            <tr>
-                              <td>{{$d->id}}</td>
-                              <td>{{$d->cate_name}}</td>
-                              <td>
-                                <a href="{{ url('edit_category',$d->id) }}">Edit</a>
-                                 <a href="{{ url('delete_category',$d->id) }}">Delete</a>
-                                </td>
-                            </tr>
-                          @endforeach
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
                 </div>
               </div>
